@@ -40,14 +40,43 @@ h2{
 }
 .reset:focus{
     color: #FFECD6;
-    background: #0f2167;
+    background: #2440af;
 }
 .game{
-    width: 440px;
-    height: 440px;
+    width: 430px;
+    height: 430px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     transform-style: preserve-3d;
     perspective: 500px;
+}
+.item{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background: #FFECD6;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+}
+.item.boxOpen{
+    transform: rotateY(0deg);
+}
+.item:after{
+    content:'';
+    position: absolute;
+    inset: 0;
+    background: #2440af;
+    transition: 0.25s;
+    /* opacity: 0.85; */
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+.boxOpen:after,
+.boxMatch:after{
+    transform: rotateY(180deg);
 }
